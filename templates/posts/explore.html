@@ -35,7 +35,7 @@
         <span>·</span>
         <span>{{ post.created_at|timesince }} de sa</span>
       </div>
-      <a href="#" class="post-title">{{ post.title }}</a>
+      <a href="{% url 'post_detail' post.pk %}" class="post-title">{{ post.title }}</a>
       <p class="post-excerpt">{{ post.content }}</p>
       <div class="post-footer">
         <button class="vote-btn" data-post-id="{{ post.id }}" data-value="1">

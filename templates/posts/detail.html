@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block title %}{{ post.title }} — Tripotay{% endblock %}
+
+{% block content %}
+<div class="container">
+
+  <article class="post-card" style="margin-top:12px;">
+    <div class="post-meta">
+      <span class="cat-badge">
+        <span class="material-icons">{{ post.category.icon }}</span>
+        {{ post.category.name }}
+      </span>
+      <span>·</span>
+      <span>{{ post.author.username }}</span>
+      <span>·</span>
+      <span>{{ post.created_at|timesince }} de sa</span>
+    </div>
+    <h1 class="post-title" style="font-size:1.15rem; margin-bottom:12px;">{{ post.title }}</h1>
+    <p style="font-size:0.9rem; line-height:1.7; color:var(--t-text); white-space:pre-wrap;">{{ post.content }}</p>
+    <div class="post-footer" style="margin-top:16px;">
+      <button class="vote-btn" data-post-id="{{ post.id }}" data-value="1">
+        <span class="material-icons">arrow_upward</span>
+        {{ post.score }}
+      </button>
+      <span style="display:flex; align-items:center; gap:3px;">
+        <span class="material-icons" style="font-size:16px;">chat_bubble_outline</span>
+        {{ post.comment_count }}
+      </span>
+      <button>
+        <span class="material-icons">share</span>
+      </button>
+    </div>
+  </article>
+
+  <!-- Commentaires (Phase 2) -->
+  <div class="section-title">Kòmantè yo</div>
+  <div class="list-group">
+    <div class="list-item" style="color:var(--t-muted); font-size:0.875rem; justify-content:center;">
+      Kòmantè ap vini byento...
+    </div>
+  </div>
+
+</div>
+{% endblock %}
