@@ -4,6 +4,8 @@ from django.urls import reverse_lazy
 from .models import Post
 from .forms import PostForm
 from apps.categories.models import Category
+from apps.comments.models import Comment
+from apps.comments.forms import CommentForm
 
 
 class ExploreView(ListView):
@@ -33,6 +35,18 @@ class PostDetailView(DetailView):
 
     def get_queryset(self):
         return Post.objects.filter(status=Post.Status.PUBLISHED).select_related('author', 'category')
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['comment_form'] = CommentForm()
+        context['comments'] = (
+            Comment.objects
+            .filter(post=self.object, parent=None)
+            .select_related('author')
+            .prefetch_related('replies__author', 'replies__replies__author')
+            .order_by('created_at')
+        )
+        return context
 
 
 class PostCreateView(LoginRequiredMixin, CreateView):

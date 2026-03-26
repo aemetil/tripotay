@@ -18,7 +18,7 @@
       <a href="{% url 'explore' %}" class="navbar-logo">Tripotay</a>
       <div class="navbar-actions">
         {% if user.is_authenticated %}
-          <a href="#" class="btn btn-primary">
+          <a href="{% url 'post_create' %}" class="btn btn-primary">
             <span class="material-icons" style="font-size:16px">add</span>
             Ekri
           </a>
@@ -40,12 +40,12 @@
       <span class="material-icons">explore</span>
       Eksplore
     </a>
-    <a href="#" class="{% block nav_home %}{% endblock %}">
+    <a href="{% url 'explore' %}" class="{% block nav_home %}{% endblock %}">
       <span class="material-icons">home</span>
       Akèy
     </a>
     {% if user.is_authenticated %}
-      <a href="#" class="{% block nav_post %}{% endblock %}">
+      <a href="{% url 'post_create' %}" class="{% block nav_post %}{% endblock %}">
         <span class="material-icons">add_circle</span>
         Ekri
       </a>

@@ -42,7 +42,7 @@
           <span class="material-icons">arrow_upward</span>
           {{ post.score }}
         </button>
-        <a href="#">
+        <a href="{% url 'post_detail' post.pk %}#komante">
           <span class="material-icons">chat_bubble_outline</span>
           {{ post.comment_count }}
         </a>
