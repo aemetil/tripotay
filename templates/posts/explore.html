@@ -40,7 +40,7 @@
       <div class="post-footer">
         <button class="vote-btn" data-post-id="{{ post.id }}" data-value="1">
           <span class="material-icons">arrow_upward</span>
-          {{ post.score }}
+          <span class="vote-score">{{ post.score }}</span>
         </button>
         <a href="{% url 'post_detail' post.pk %}#komante">
           <span class="material-icons">chat_bubble_outline</span>

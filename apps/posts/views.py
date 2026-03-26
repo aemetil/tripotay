@@ -57,4 +57,7 @@ class PostCreateView(LoginRequiredMixin, CreateView):
 
     def form_valid(self, form):
         form.instance.author = self.request.user
-        return super().form_valid(form)
+        response = super().form_valid(form)
+        from apps.moderation.services import check_post_for_moderation
+        check_post_for_moderation(self.object)
+        return response

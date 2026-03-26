@@ -22,7 +22,7 @@
     <div class="post-footer" style="margin-top:16px;">
       <button class="vote-btn" data-post-id="{{ post.id }}" data-value="1">
         <span class="material-icons">arrow_upward</span>
-        {{ post.score }}
+        <span class="vote-score">{{ post.score }}</span>
       </button>
       <span style="display:flex; align-items:center; gap:3px;">
         <span class="material-icons" style="font-size:16px;">chat_bubble_outline</span>
@@ -31,6 +31,11 @@
       <button>
         <span class="material-icons">share</span>
       </button>
+      {% if user.is_authenticated %}
+      <button class="report-btn" data-post-id="{{ post.id }}" style="margin-left:auto;">
+        <span class="material-icons">flag</span>
+      </button>
+      {% endif %}
     </div>
   </article>
 
