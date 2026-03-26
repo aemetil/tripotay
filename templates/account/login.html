@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% load allauth account %}
+
+{% block title %}Konekte — Tripotay{% endblock %}
+
+{% block content %}
+<div class="container" style="max-width:420px;">
+
+  <div style="text-align:center; padding:32px 0 24px;">
+    <div style="font-size:1.8rem; font-weight:800; color:var(--t-orange);">Tripotay</div>
+    <p style="color:var(--t-muted); font-size:0.875rem; margin-top:6px;">Konekte pou kontinye</p>
+  </div>
+
+  <form method="post" class="form-card">
+    {% csrf_token %}
+
+    {% if form.errors %}
+    <div style="background:#FEF2F2; border:1px solid #FECACA; border-radius:var(--t-radius); padding:12px; margin-bottom:16px; font-size:0.85rem; color:var(--t-danger);">
+      <span class="material-icons" style="font-size:16px; vertical-align:middle;">error_outline</span>
+      Non itilizatè oswa modpas pa kòrèk.
+    </div>
+    {% endif %}
+
+    <div class="form-group">
+      <label class="form-label" for="{{ form.login.id_for_label }}">Non itilizatè / Imèl</label>
+      {{ form.login }}
+    </div>
+
+    <div class="form-group">
+      <label class="form-label" for="{{ form.password.id_for_label }}">Modpas</label>
+      {{ form.password }}
+      <div style="text-align:right; margin-top:6px;">
+        <a href="{% url 'account_reset_password' %}" style="font-size:0.8rem; color:var(--t-muted);">Bliye modpas ?</a>
+      </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary" style="width:100%; justify-content:center; padding:12px;">
+      Konekte
+    </button>
+  </form>
+
+  <p style="text-align:center; font-size:0.875rem; color:var(--t-muted); margin-top:16px;">
+    Ou pa gen kont ?
+    <a href="{% url 'account_signup' %}" style="color:var(--t-orange); font-weight:600;">Kreye yon kont</a>
+  </p>
+
+</div>
+{% endblock %}

@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block title %}Dekonekte — Tripotay{% endblock %}
+
+{% block content %}
+<div class="container" style="max-width:420px;">
+  <div style="text-align:center; padding:48px 0 24px;">
+    <span class="material-icons" style="font-size:48px; color:var(--t-muted);">logout</span>
+    <h1 style="font-size:1.1rem; font-weight:700; margin:16px 0 8px;">Ou vle dekonekte ?</h1>
+    <p style="color:var(--t-muted); font-size:0.875rem;">Ou ka tounen nenpòt ki lè.</p>
+  </div>
+
+  <form method="post" style="display:flex; flex-direction:column; gap:10px;">
+    {% csrf_token %}
+    <button type="submit" class="btn-logout">
+      <span class="material-icons">logout</span>
+      Wi, dekonekte mwen
+    </button>
+    <a href="{% url 'explore' %}" class="btn btn-ghost" style="justify-content:center;">
+      Anile
+    </a>
+  </form>
+</div>
+{% endblock %}
