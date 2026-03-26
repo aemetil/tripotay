@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% load static %}
 
-{% block title %}Eksplore — Tripotay{% endblock %}
+{% block title %}Zen — Tripotay{% endblock %}
 {% block nav_explore %}active{% endblock %}
 
 {% block content %}
@@ -11,7 +11,7 @@
   <div class="categories-strip">
     <a href="{% url 'explore' %}" class="cat-chip active">
       <span class="material-icons">apps</span>
-      Tout
+      Tout zen
     </a>
     {% for cat in categories %}
     <a href="#" class="cat-chip">
