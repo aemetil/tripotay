@@ -1,0 +1,59 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pyc
+*.egg
+*.egg-info/
+dist/
+build/
+.eggs/
+
+# Environnement virtuel
+venv/
+env/
+.env
+.env.*
+!.env.example
+
+# Django
+*.log
+local_settings.py
+db.sqlite3
+db.sqlite3-journal
+media/
+
+# Migrations [on les commit, mais pas les conflits]
+# apps/*/migrations/*.pyc
+
+# Static collecté [généré par collectstatic]
+staticfiles/
+static_root/
+
+# Mac
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# VSCode
+.vscode/
+*.code-workspace
+
+# Tests / Coverage
+htmlcov/
+.coverage
+.coverage.*
+coverage.xml
+*.cover
+
+# Misc
+*.swp
+*.swo
+.idea/
+*.orig
+
+# Dossiers docs/design (pas dans le repo pour l'instant)
+docs/
+archive/
+marquette/
