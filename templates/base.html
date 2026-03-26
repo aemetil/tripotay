@@ -8,9 +8,16 @@
   {% load static %}
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  <link rel="manifest" href="{% static 'manifest.json' %}">
   {% block extra_css %}{% endblock %}
 </head>
 <body>
+
+  <!-- Banner offline -->
+  <div id="offline-banner" style="display:none; align-items:center; justify-content:center; gap:8px; background:#1A1A1A; color:#fff; font-size:0.8rem; padding:8px; text-align:center;">
+    <span class="material-icons" style="font-size:16px;">wifi_off</span>
+    Ou pa konekte — pòs ou yo ap sove lè entènèt tounen
+  </div>
 
   <!-- Navbar -->
   <nav class="navbar">
@@ -61,6 +68,7 @@
     {% endif %}
   </nav>
 
+  <script src="{% static 'js/app.js' %}"></script>
   <script src="{% static 'js/votes.js' %}"></script>
   <script src="{% static 'js/moderation.js' %}"></script>
   {% block extra_js %}{% endblock %}
