@@ -1,0 +1,12 @@
+[
+  {"model": "categories.category", "pk": 1, "fields": {"name": "Espò", "slug": "espo", "description": "Foutbòl, baskètbòl, atletism ak tout lòt espò. Pale sou seleksyon nasyonal, atlèt ayisyen ak aktyalite espò mondyal.", "icon": "⚽", "order": 1}},
+  {"model": "categories.category", "pk": 2, "fields": {"name": "Mizik", "slug": "mizik", "description": "Konpa, rasin, rap kreyòl, twoubadou ak tout mizik ayisyen. Diskite atist, album, konsè ak nouvo son yo.", "icon": "🎵", "order": 2}},
+  {"model": "categories.category", "pk": 3, "fields": {"name": "Nouvèl", "slug": "nouvel", "description": "Aktyalite Ayiti ak lòt peyi. Pataje nouvèl enpòtan, analiz sitiyasyon ak opinyon ou sou sa k ap pase.", "icon": "📰", "order": 3}},
+  {"model": "categories.category", "pk": 4, "fields": {"name": "Travay & Biznis", "slug": "travay-biznis", "description": "Chache travay, lanse biznis, konsèy finansye. Pataje eksperyans ou ak kominote a pou nou grandi ansanm.", "icon": "💼", "order": 4}},
+  {"model": "categories.category", "pk": 5, "fields": {"name": "Dyaspora", "slug": "dyaspora", "description": "Lavi deyò peyi a — Etazini, Kanada, Lafrans ak lòt peyi. Konsèy pratik, eksperyans ak tout sa yon Ayisyen deyò bezwen.", "icon": "🌍", "order": 5}},
+  {"model": "categories.category", "pk": 6, "fields": {"name": "Kilti & Tradisyon", "slug": "kilti-tradisyon", "description": "Istwa, tradisyon, fèt, Vodou, gastronomie ak tout sa ki fè Ayiti inik. Kote rasin nou ap viv.", "icon": "🎨", "order": 6}},
+  {"model": "categories.category", "pk": 7, "fields": {"name": "Teknoloji", "slug": "teknoloji", "description": "Enfòmatik, pwogramasyon, rezo sosyal ak inovasyon. Pou moun ki renmen teknoloji ak sa k ap vini.", "icon": "💻", "order": 7}},
+  {"model": "categories.category", "pk": 8, "fields": {"name": "Fanmi & Sosyete", "slug": "fanmi-sosyete", "description": "Relasyon, edikasyon, sante, fanmi ak lavi chak jou. Diskisyon serye sou sosyete ayisyèn nan.", "icon": "🏠", "order": 8}},
+  {"model": "categories.category", "pk": 9, "fields": {"name": "Manje Ayisyen", "slug": "manje-ayisyen", "description": "Resèt, restoran, tradisyon kulinè ak tout sa ki gen rapò ak manje ayisyen. Griot, soup joumou ak anpil lòt ankò.", "icon": "🍽️", "order": 9}},
+  {"model": "categories.category", "pk": 10, "fields": {"name": "Jwèt & Riye", "slug": "jwet-riye", "description": "Blòg, memes, istwa dwòl ak tout sa ki fè nou ri. Paske lavi a twò kout pou toujou serye.", "icon": "😂", "order": 10}}
+]
