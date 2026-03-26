@@ -53,7 +53,7 @@ coverage.xml
 .idea/
 *.orig
 
-# Dossiers docs/design (pas dans le repo pour l'instant)
+# Dossiers docs/design
 docs/
 archive/
 marquette/
