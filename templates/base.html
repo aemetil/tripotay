@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ht">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#FF7605">
+  <title>{% block title %}Tripotay{% endblock %}</title>
+  {% load static %}
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  {% block extra_css %}{% endblock %}
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="navbar-inner">
+      <a href="{% url 'explore' %}" class="navbar-logo">Tripotay</a>
+      <div class="navbar-actions">
+        {% if user.is_authenticated %}
+          <a href="#" class="btn btn-primary">
+            <span class="material-icons" style="font-size:16px">add</span>
+            Ekri
+          </a>
+        {% else %}
+          <a href="{% url 'account_login' %}" class="btn btn-ghost">Konekte</a>
+        {% endif %}
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main -->
+  <main class="main">
+    {% block content %}{% endblock %}
+  </main>
+
+  <!-- Bottom nav (mobile only) -->
+  <nav class="bottom-nav">
+    <a href="{% url 'explore' %}" class="{% block nav_explore %}{% endblock %}">
+      <span class="material-icons">explore</span>
+      Eksplore
+    </a>
+    <a href="#" class="{% block nav_home %}{% endblock %}">
+      <span class="material-icons">home</span>
+      Akèy
+    </a>
+    {% if user.is_authenticated %}
+      <a href="#" class="{% block nav_post %}{% endblock %}">
+        <span class="material-icons">add_circle</span>
+        Ekri
+      </a>
+      <a href="{% url 'profile' %}" class="{% block nav_profile %}{% endblock %}">
+        <span class="material-icons">person</span>
+        Pwofil
+      </a>
+    {% else %}
+      <a href="{% url 'account_login' %}">
+        <span class="material-icons">login</span>
+        Konekte
+      </a>
+    {% endif %}
+  </nav>
+
+  {% block extra_js %}{% endblock %}
+</body>
+</html>

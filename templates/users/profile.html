@@ -1,0 +1,94 @@
+{% extends "base.html" %}
+
+{% block title %}Pwofil — Tripotay{% endblock %}
+{% block nav_profile %}active{% endblock %}
+
+{% block content %}
+<div class="container">
+
+  <!-- Header -->
+  <div class="profile-header">
+    <div class="profile-avatar">
+      {% if user.avatar %}
+        <img src="{{ user.avatar.url }}" alt="{{ user.username }}">
+      {% else %}
+        <span class="material-icons">person</span>
+      {% endif %}
+    </div>
+    <div>
+      <div class="profile-name">{{ user.username }}</div>
+      <div class="profile-sub">{{ user.karma }} pwen karma</div>
+    </div>
+  </div>
+
+  <!-- Aktivite -->
+  <div class="section-title">Aktivite mwen</div>
+  <div class="list-group">
+    <a href="#" class="list-item">
+      <span class="material-icons">article</span>
+      <span class="item-label">Pòs mwen yo</span>
+      <span class="material-icons item-arrow">chevron_right</span>
+    </a>
+    <a href="#" class="list-item">
+      <span class="material-icons">chat_bubble_outline</span>
+      <span class="item-label">Kòmantè mwen yo</span>
+      <span class="material-icons item-arrow">chevron_right</span>
+    </a>
+    <a href="#" class="list-item">
+      <span class="material-icons">arrow_upward</span>
+      <span class="item-label">Pòs mwen renmen yo</span>
+      <span class="material-icons item-arrow">chevron_right</span>
+    </a>
+  </div>
+
+  <!-- Kont -->
+  <div class="section-title">Kont mwen</div>
+  <div class="list-group">
+    <a href="#" class="list-item">
+      <span class="material-icons">manage_accounts</span>
+      <span class="item-label">Modifye pwofil</span>
+      <span class="item-badge"></span>
+      <span class="material-icons item-arrow">chevron_right</span>
+    </a>
+    <a href="{% url 'account_change_password' %}" class="list-item">
+      <span class="material-icons">lock_outline</span>
+      <span class="item-label">Chanje modpas</span>
+      <span class="material-icons item-arrow">chevron_right</span>
+    </a>
+    <a href="#" class="list-item">
+      <span class="material-icons">notifications_none</span>
+      <span class="item-label">Notifikasyon</span>
+      <span class="material-icons item-arrow">chevron_right</span>
+    </a>
+  </div>
+
+  <!-- Èd -->
+  <div class="section-title">Èd</div>
+  <div class="list-group">
+    <a href="#" class="list-item">
+      <span class="material-icons">info_outline</span>
+      <span class="item-label">Règ kominote a</span>
+      <span class="material-icons item-arrow">chevron_right</span>
+    </a>
+    <a href="#" class="list-item">
+      <span class="material-icons">flag_outlined</span>
+      <span class="item-label">Rapòte yon pwoblèm</span>
+      <span class="material-icons item-arrow">chevron_right</span>
+    </a>
+  </div>
+
+  <!-- Dekonekte -->
+  <form method="post" action="{% url 'account_logout' %}">
+    {% csrf_token %}
+    <button type="submit" class="btn-logout">
+      <span class="material-icons">logout</span>
+      Dekonekte
+    </button>
+  </form>
+
+  <p style="text-align:center; font-size:0.75rem; color:var(--t-muted); padding:16px 0 4px;">
+    Tripotay v0.1
+  </p>
+
+</div>
+{% endblock %}

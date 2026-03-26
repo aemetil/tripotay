@@ -1,0 +1,80 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Eksplore — Tripotay{% endblock %}
+{% block nav_explore %}active{% endblock %}
+
+{% block content %}
+<div class="container">
+
+  <!-- Categories strip -->
+  <div class="categories-strip">
+    <a href="{% url 'explore' %}" class="cat-chip active">
+      <span class="material-icons">apps</span>
+      Tout
+    </a>
+    {% for cat in categories %}
+    <a href="#" class="cat-chip">
+      <span class="material-icons">{{ cat.icon }}</span>
+      {{ cat.name }}
+    </a>
+    {% endfor %}
+  </div>
+
+  <!-- Feed -->
+  <div style="padding: 12px 0;">
+    {% for post in posts %}
+    <article class="post-card">
+      <div class="post-meta">
+        <span class="cat-badge">
+          <span class="material-icons">{{ post.category.icon }}</span>
+          {{ post.category.name }}
+        </span>
+        <span>·</span>
+        <span>{{ post.author.username }}</span>
+        <span>·</span>
+        <span>{{ post.created_at|timesince }} de sa</span>
+      </div>
+      <a href="#" class="post-title">{{ post.title }}</a>
+      <p class="post-excerpt">{{ post.content }}</p>
+      <div class="post-footer">
+        <button class="vote-btn" data-post-id="{{ post.id }}" data-value="1">
+          <span class="material-icons">arrow_upward</span>
+          {{ post.score }}
+        </button>
+        <a href="#">
+          <span class="material-icons">chat_bubble_outline</span>
+          {{ post.comment_count }}
+        </a>
+        <button>
+          <span class="material-icons">share</span>
+        </button>
+      </div>
+    </article>
+    {% empty %}
+    <div class="empty-state">
+      <span class="material-icons">forum</span>
+      <p>Pa gen pòs ankò. Ekri premye a !</p>
+      {% if not user.is_authenticated %}
+        <a href="{% url 'account_login' %}" class="btn btn-primary" style="margin-top:16px">
+          Konekte pou ekri
+        </a>
+      {% endif %}
+    </div>
+    {% endfor %}
+  </div>
+
+  <!-- Pagination -->
+  {% if is_paginated %}
+  <div style="display:flex; justify-content:center; gap:8px; padding:16px 0;">
+    {% if page_obj.has_previous %}
+      <a href="?page={{ page_obj.previous_page_number }}" class="btn btn-ghost">Anvan</a>
+    {% endif %}
+    {% if page_obj.has_next %}
+      <a href="?page={{ page_obj.next_page_number }}" class="btn btn-ghost">Apre</a>
+    {% endif %}
+  </div>
+  {% endif %}
+
+</div>
+{% endblock %}
